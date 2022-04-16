@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.example.storyapplication.databinding.ActivityOnBoardingBinding
-import com.example.storyapplication.view.MainActivity
+import com.example.storyapplication.view.authentication.MainActivity
 
 class OnBoardingActivity : AppCompatActivity() {
 
@@ -19,7 +19,7 @@ class OnBoardingActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.visitNow.setOnClickListener{
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
 

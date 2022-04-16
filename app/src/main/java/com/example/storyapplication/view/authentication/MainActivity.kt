@@ -1,4 +1,4 @@
-package com.example.storyapplication.view
+package com.example.storyapplication.view.authentication
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
