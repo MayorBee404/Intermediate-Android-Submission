@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.WelcomeFragment">
+    tools:context=".view.authentication.WelcomeFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -15,7 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image_welcome" />
+        app:srcCompat="@drawable/image_welcome"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -108,9 +109,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

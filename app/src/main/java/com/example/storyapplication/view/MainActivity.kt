@@ -5,16 +5,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import com.example.storyapplication.databinding.ActivityMainBinding
+import androidx.fragment.app.commit
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.example.storyapplication.R
+import com.example.storyapplication.view.authentication.WelcomeFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding  : ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            binding = ActivityMainBinding.inflate(layoutInflater)
-            setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
         setupView()
         }

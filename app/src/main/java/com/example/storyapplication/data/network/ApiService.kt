@@ -7,11 +7,13 @@ import retrofit2.http.*
 
 interface ApiService {
 
+    @FormUrlEncoded
     @POST("login")
     fun userLogin(
         @Body user: Map<String, String>
     ) : Call<UserResponse>
 
+    @FormUrlEncoded
     @POST("register")
     fun userRegister(
         @Body user: Map<String, String>

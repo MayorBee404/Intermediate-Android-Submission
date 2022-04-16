@@ -14,8 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StoryApplication">
         <activity
+            android:name=".view.onboarding.OnBoardingActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.MainActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".view.SplashActivity"
             android:exported="true">

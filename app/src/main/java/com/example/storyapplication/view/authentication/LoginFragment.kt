@@ -1,4 +1,4 @@
-package com.example.storyapplication.view.login
+package com.example.storyapplication.view.authentication
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -8,27 +8,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.storyapplication.R
 import com.example.storyapplication.databinding.LoginFragmentBinding
-import com.example.storyapplication.databinding.RegisterFragmentBinding
 
 class LoginFragment : Fragment() {
 
     private var _loginBinding : LoginFragmentBinding? = null
     private val binding get() = _loginBinding!!
-    private lateinit var viewModel: LoginViewModel
+    private lateinit var viewModel: AuthenticationViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _loginBinding = LoginFragmentBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view,savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(AuthenticationViewModel::class.java)
         playAnimation()
     }
 

@@ -5,11 +5,12 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.example.storyapplication.R
+import com.example.storyapplication.view.onboarding.OnBoardingActivity
 
+@Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,8 +18,8 @@ class SplashActivity : AppCompatActivity() {
         val delayMillis: Long = 2000
         setupView()
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(applicationContext, MainActivity::class.java)
+        Handler().postDelayed({
+            val intent = Intent(this@SplashActivity,OnBoardingActivity::class.java)
             startActivity(intent)
             finish()
         }, delayMillis)
@@ -38,3 +39,4 @@ class SplashActivity : AppCompatActivity() {
 
     }
 }
+

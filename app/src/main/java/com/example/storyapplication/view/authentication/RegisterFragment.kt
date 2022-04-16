@@ -1,8 +1,7 @@
-package com.example.storyapplication.view.register
+package com.example.storyapplication.view.authentication
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,19 +15,17 @@ class RegisterFragment : Fragment() {
     private val binding get() = _registerBinding!!
 
 
-    private lateinit var viewModel: RegisterViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _registerBinding = RegisterFragmentBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view,savedInstanceState)
-        viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
+
         playAnimation()
     }
     private fun playAnimation(){

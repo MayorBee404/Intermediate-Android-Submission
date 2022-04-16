@@ -8,10 +8,11 @@
         <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.147" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.193" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.1859375" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.14739583333333334" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_started.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.1" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.13229166666666667" />
         <entry key="app/src/main/res/layout/on_boarding_fragment.xml" value="0.2828125" />
         <entry key="app/src/main/res/layout/register_fragment.xml" value="0.253125" />

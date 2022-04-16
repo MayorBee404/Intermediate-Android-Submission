@@ -3,16 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashActivity">
+    app:startDestination="@id/welcomeFragment">
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.storyapplication.view.login.LoginFragment"
-        android:label="login_fragment"
-        tools:layout="@layout/login_fragment" />
-    <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.storyapplication.view.WelcomeFragment"
+        android:name="com.example.storyapplication.view.authentication.WelcomeFragment"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
         <action
@@ -23,22 +18,13 @@
             app:destination="@id/registerFragment" />
     </fragment>
     <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.storyapplication.view.authentication.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" />
+    <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.storyapplication.view.register.RegisterFragment"
+        android:name="com.example.storyapplication.view.authentication.RegisterFragment"
         android:label="register_fragment"
         tools:layout="@layout/register_fragment" />
-    <activity
-        android:id="@+id/splashActivity"
-        android:name="com.example.storyapplication.view.SplashActivity"
-        android:label="activity_splash"
-        tools:layout="@layout/activity_splash" />
-    <fragment
-        android:id="@+id/onBoardingFragment2"
-        android:name="com.example.storyapplication.view.onboarding.OnBoardingFragment"
-        android:label="on_boarding_fragment"
-        tools:layout="@layout/on_boarding_fragment" >
-        <action
-            android:id="@+id/action_onBoardingFragment2_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
-    </fragment>
 </navigation>
