@@ -1,7 +1,12 @@
 package com.example.storyapplication.data.network
 
+import android.content.Context
 import android.util.Log
 import com.example.storyapplication.BuildConfig
+import com.example.storyapplication.data.Repository
+import com.example.storyapplication.data.datastore.UserPreference
+import com.example.storyapplication.dataStore
+import com.example.storyapplication.utilities.AppExecutors
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -9,16 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiConfig {
     companion object {
-            fun getApiService(): ApiService {
-                val loggingInterceptor =
-                    if(BuildConfig.DEBUG) {
-                        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-                    } else {
-                        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
-                    }
-                val client = OkHttpClient.Builder()
-                    .addInterceptor(loggingInterceptor)
-                    .build()
+            fun getApiService(client: OkHttpClient) : ApiService {
                 val retrofit = Retrofit.Builder()
                     .baseUrl("https://story-api.dicoding.dev/v1/")
                     .addConverterFactory(GsonConverterFactory.create())
@@ -26,5 +22,23 @@ class ApiConfig {
                     .build()
                 return retrofit.create(ApiService::class.java)
             }
-    }
+            fun provideUserRepository(context: Context): Repository {
+                val appExecutors = AppExecutors()
+                val pref = UserPreference.getInstance(context.dataStore)
+
+                val loggingInterceptor = if(BuildConfig.DEBUG) {
+                    HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+                } else {
+                    HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+                }
+                val client = OkHttpClient.Builder()
+                    .addInterceptor(loggingInterceptor)
+                    .build()
+
+                Log.e("Injection", "Client: $client")
+                val apiService = ApiConfig.getApiService(client)
+
+                return Repository.getInstance(pref, apiService, appExecutors)
+            }
+        }
 }

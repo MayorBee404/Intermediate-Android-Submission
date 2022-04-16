@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StoryApplication">
         <activity
+            android:name=".view.dashboard.DashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.onboarding.OnBoardingActivity"
             android:exported="false" />
         <activity

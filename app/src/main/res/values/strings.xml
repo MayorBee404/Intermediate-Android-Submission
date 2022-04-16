@@ -28,5 +28,16 @@
     <string name="greeting">Halo %1$s,</string>
     <string name="logout">Keluar</string>
     <string name="splash">splash</string>
+    <string name="fill_field">Please fill all field</string>
+    <string name="wrong_credential">Wrong username or password</string>
+    <string name="register_success">Register Sukses silahkan Masuk</string>
+    <string name="register_field">Register Gagal</string>
+    <string name="length_character">Length %1$s must be more than 6 characters</string>
+
+    //Navigation
+    <string name="title_home">Home</string>
+    <string name="title_setting">Setting</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_new_story">New Story</string>
 
 </resources>

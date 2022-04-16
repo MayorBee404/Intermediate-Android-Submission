@@ -6,6 +6,7 @@ import com.example.storyapplication.data.datastore.UserPreference
 import com.example.storyapplication.data.network.ApiInterceptor
 import com.example.storyapplication.data.network.ApiService
 import com.example.storyapplication.data.network.UserResponse
+import com.example.storyapplication.utilities.AppExecutors
 
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
@@ -17,6 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class Repository(
     private val pref: UserPreference,
     private val apiService: ApiService,
+    val appExecutors: AppExecutors
 ) {
     /**
      * Access data from DataStore (SettingPreference)
@@ -63,6 +65,7 @@ class Repository(
     }
 
     fun getUserStories(token: String): Call<UserResponse> {
+
         val client = OkHttpClient.Builder()
             .addInterceptor(ApiInterceptor(token))
             .build()
@@ -88,7 +91,7 @@ class Repository(
         return mApiService.postUserStory(photo, description)
     }
 
-    companion object {
+   companion object {
         @Volatile
         private var instance: Repository? = null
 
@@ -96,9 +99,10 @@ class Repository(
         fun getInstance(
             pref: UserPreference,
             apiService: ApiService,
+            appExecutors: AppExecutors
         ) : Repository =
             instance ?: synchronized(this) {
-                instance ?: Repository(pref, apiService)
+                instance ?: Repository(pref,apiService,appExecutors)
             }.also { instance = it }
     }
 
