@@ -15,13 +15,13 @@
         android:theme="@style/Theme.StoryApplication">
         <activity
             android:name=".view.dashboard.DashboardActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".view.onboarding.OnBoardingActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".view.authentication.MainActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".view.SplashActivity"
             android:exported="true">

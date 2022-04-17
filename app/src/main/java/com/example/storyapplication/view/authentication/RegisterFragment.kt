@@ -3,6 +3,7 @@ package com.example.storyapplication.view.authentication
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -53,9 +54,9 @@ class RegisterFragment : Fragment() {
                 val messageAllert = getString(R.string.message_login_page)
                 Toast.makeText(requireContext(),messageAllert,Toast.LENGTH_SHORT).show()
             }else{
-                if(password.length<6){
+                if(password.length<6) {
                     val messageAllert = getString(R.string.length_character)
-                    Toast.makeText(requireContext(),messageAllert,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), messageAllert, Toast.LENGTH_SHORT).show()
 
                 }else{
                     authenticationViewModel.userRegister(name, email, password)

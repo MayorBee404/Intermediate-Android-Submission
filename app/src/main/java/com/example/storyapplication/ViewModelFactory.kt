@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.storyapplication.data.Repository
 import com.example.storyapplication.data.network.ApiConfig
 import com.example.storyapplication.view.authentication.AuthenticationViewModel
+import com.example.storyapplication.view.dashboard.setting.SettingViewModel
 import java.lang.IllegalArgumentException
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
@@ -17,7 +18,9 @@ class ViewModelFactory private constructor(private val userRepository: Repositor
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when{
             modelClass.isAssignableFrom(AuthenticationViewModel::class.java) -> AuthenticationViewModel(userRepository) as T
+            modelClass.isAssignableFrom(SettingViewModel::class.java)->SettingViewModel(userRepository) as T
             else -> throw IllegalArgumentException("Unknown ViewModel Class : ${modelClass.name}")
+
         }
     }
 

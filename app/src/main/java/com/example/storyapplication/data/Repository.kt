@@ -20,9 +20,6 @@ class Repository(
     private val apiService: ApiService,
     val appExecutors: AppExecutors
 ) {
-    /**
-     * Access data from DataStore (SettingPreference)
-     */
 
     fun getThemeMode() : LiveData<Boolean> = pref.getThemeMode().asLiveData()
     suspend fun saveThemeMode(value: Boolean) = pref.saveThemeMode(value)

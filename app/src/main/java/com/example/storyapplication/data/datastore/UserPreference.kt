@@ -38,9 +38,6 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
-    /**
-     * User Email
-     */
 
     fun getUserEmail(): Flow<String> = dataStore.data.map {
         it[USER_EMAIL_KEY] ?: DEFAULT_VALUE
@@ -52,10 +49,6 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
-    /**
-     * User Name
-     */
-
     fun getUserName(): Flow<String> = dataStore.data.map {
         it[USER_NAME_KEY] ?: DEFAULT_VALUE
     }
@@ -65,10 +58,6 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             it[USER_NAME_KEY] = name
         }
     }
-
-    /**
-     * First Time
-     */
 
     fun isFirstTime(): Flow<Boolean> = dataStore.data.map {
         it[FIRST_TIME_KEY] ?: true

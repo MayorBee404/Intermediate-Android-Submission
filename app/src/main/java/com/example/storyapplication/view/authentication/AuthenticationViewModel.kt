@@ -94,7 +94,6 @@ class AuthenticationViewModel(private val userRepository: Repository) : ViewMode
             }
         })
     }
-    fun getUserToken() = userRepository.getUserToken()
 
     fun saveUserToken(token: String?) {
         viewModelScope.launch {
@@ -121,6 +120,16 @@ class AuthenticationViewModel(private val userRepository: Repository) : ViewMode
     fun logout() {
         viewModelScope.launch {
             userRepository.clearCache()
+        }
+    }
+
+    fun getUserToken() = userRepository.getUserToken()
+    fun getUserName(): LiveData<String> = userRepository.getUserName()
+    fun getUserEmail(): LiveData<String> = userRepository.getUserEmail()
+    fun getIsFirstTime(): LiveData<Boolean> = userRepository.getIsFirstTime()
+    fun saveIsFirstTime(value: Boolean) {
+        viewModelScope.launch {
+            userRepository.saveIsFirstTime(value)
         }
     }
 }

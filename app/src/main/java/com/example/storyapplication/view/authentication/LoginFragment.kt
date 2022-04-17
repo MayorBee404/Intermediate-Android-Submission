@@ -48,6 +48,7 @@ class LoginFragment : Fragment() {
             if(email.isEmpty() || password.isEmpty()){
                 val messageAllert = getString(R.string.message_login_page)
                 Toast.makeText(context,messageAllert,Toast.LENGTH_SHORT).show()
+
             }else{
                 viewModel.userLogin(email,password)
                 viewModel.error.observe(viewLifecycleOwner){
@@ -65,7 +66,7 @@ class LoginFragment : Fragment() {
                         }
                         }
                     }else{
-                        val massageAllert = getString(R.string.message_login_page)
+                        val massageAllert = getString(R.string.wrong_credential)
                         Toast.makeText(context,"$message: $massageAllert",Toast.LENGTH_SHORT).show()
                         binding.passwordEditText.apply{
                             text?.clear()

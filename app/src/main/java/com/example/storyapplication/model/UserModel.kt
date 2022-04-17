@@ -8,6 +8,7 @@ import kotlinx.android.parcel.Parcelize
 data class UserModel(
     @field:SerializedName("name")
     val name: String? = null,
+    @field:SerializedName("email")
     val email: String? = null,
     @field:SerializedName("userId")
     val userId: String? = null,

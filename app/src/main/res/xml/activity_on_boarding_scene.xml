@@ -18,6 +18,22 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            motion:layout_editor_absoluteY="654dp"
+            android:layout_height="8dp"
+            android:layout_width="74dp"
+            android:id="@+id/textView"
+            motion:layout_constraintEnd_toEndOf="@+id/visit_now"
+            motion:layout_constraintStart_toStartOf="@+id/visit_now"
+            motion:layout_constraintHorizontal_bias="0.492" />
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:id="@+id/textView8"
+            motion:layout_constraintTop_toTopOf="@+id/visit_now"
+            motion:layout_constraintBottom_toBottomOf="@+id/visit_now" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -95,6 +111,17 @@
             <CustomAttribute
                 motion:attributeName="crossfade"
                 motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toBottomOf="@+id/visit_now"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:id="@+id/textView8">
+        <CustomAttribute
+            motion:attributeName="crossfade"
+            motion:customFloatValue="0" />
         </Constraint>
     </ConstraintSet>
     <ConstraintSet
@@ -264,6 +291,14 @@
                 motion:attributeName="crossfade"
                 motion:customFloatValue="0" />
         </Constraint>
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@+id/visit_now"
+            motion:layout_constraintBottom_toBottomOf="@+id/visit_now"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:id="@+id/textView8" />
     </ConstraintSet>
     <Transition
         motion:constraintSetStart="@+id/menu2"
@@ -359,6 +394,14 @@
             android:layout_marginBottom="32dp"
             motion:layout_constraintBottom_toTopOf="@+id/menu2"
             android:alpha="1"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/textView8"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/visit_now"
+            android:alpha="0"
             motion:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>
     <Transition

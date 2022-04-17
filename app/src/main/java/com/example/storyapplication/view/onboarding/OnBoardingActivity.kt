@@ -6,19 +6,27 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.activity.viewModels
+import com.example.storyapplication.ViewModelFactory
 import com.example.storyapplication.databinding.ActivityOnBoardingBinding
+import com.example.storyapplication.view.authentication.AuthenticationViewModel
 import com.example.storyapplication.view.authentication.MainActivity
 
 class OnBoardingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOnBoardingBinding
+    private lateinit var factory: ViewModelFactory
+    private val authenticationViewModel:AuthenticationViewModel by viewModels{factory}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityOnBoardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        factory = ViewModelFactory.getInstance(this)
+
         binding.visitNow.setOnClickListener{
+            authenticationViewModel.saveIsFirstTime(false)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }

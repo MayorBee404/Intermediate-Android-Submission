@@ -35,8 +35,8 @@ class ApiConfig {
                     .addInterceptor(loggingInterceptor)
                     .build()
 
-                Log.e("Injection", "Client: $client")
-                val apiService = ApiConfig.getApiService(client)
+                Log.e("ApiConfig", "Client: $client")
+                val apiService = getApiService(client)
 
                 return Repository.getInstance(pref, apiService, appExecutors)
             }

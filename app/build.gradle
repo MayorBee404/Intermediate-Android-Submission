@@ -10,6 +10,7 @@ android {
     compileSdk 32
 
     defaultConfig {
+        buildConfigField("String", "BASE_URL", '"https://story-api.dicoding.dev/v1/"')
         applicationId "com.example.storyapplication"
         minSdk 21
         targetSdk 32
@@ -55,7 +56,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.5'
-    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'com.google.code.gson:gson:2.8.9'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
