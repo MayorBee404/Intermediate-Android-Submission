@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.storyapplication.R
 import com.example.storyapplication.ViewModelFactory
 import com.example.storyapplication.databinding.ProfileFragmentBinding
@@ -37,6 +39,7 @@ class ProfileFragment : Fragment() {
         factory = ViewModelFactory.getInstance(requireActivity())
 
         initObserve()
+        initAction()
     }
     private fun initObserve(){
 
@@ -48,5 +51,22 @@ class ProfileFragment : Fragment() {
         }
 
     }
+    private fun initAction(){
+        binding.toolbar.apply {
+
+            inflateMenu(R.menu.nav_setting)
+            setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.navigation_setting -> {
+                        findNavController().navigate(R.id.action_navigation_profile_to_settingFragment)
+                        true
+
+                    }
+                    else -> false
+                }
+            }
+        }
+    }
+
 
 }

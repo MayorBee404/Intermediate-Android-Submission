@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
         }
         fetchUserStories()
         initRecycler()
+        initAction()
 
 
     }
@@ -61,6 +62,8 @@ class HomeFragment : Fragment() {
         }
         binding.rvStory.adapter = adapter
 
+    }
+    private fun initAction(){
         binding.toolbar.apply {
             inflateMenu(R.menu.nav_setting)
             setOnMenuItemClickListener { item ->
@@ -75,6 +78,7 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

@@ -18,7 +18,11 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.storyapplication.view.dashboard.profile.ProfileFragment"
         android:label="profile_fragment"
-        tools:layout="@layout/profile_fragment" />
+        tools:layout="@layout/profile_fragment" >
+        <action
+            android:id="@+id/action_navigation_profile_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.example.storyapplication.view.dashboard.setting.SettingFragment"

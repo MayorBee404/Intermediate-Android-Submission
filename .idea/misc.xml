@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/drawable/ic_ellipse_1.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.193" />
         <entry key="app/src/main/res/drawable/ic_story_app.xml" value="0.1755" />
+        <entry key="app/src/main/res/layout-land/profile_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.14739583333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.2116851806640625" />
