@@ -9,9 +9,18 @@
         android:id="@+id/navigation_home"
         android:name="com.example.storyapplication.view.dashboard.home.HomeFragment"
         android:label="home_fragment"
-        tools:layout="@layout/home_fragment" />
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_navigation_home_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/navigation_setting"
+        android:id="@+id/navigation_profile"
+        android:name="com.example.storyapplication.view.dashboard.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
+    <fragment
+        android:id="@+id/settingFragment"
         android:name="com.example.storyapplication.view.dashboard.setting.SettingFragment"
         android:label="setting_fragment"
         tools:layout="@layout/setting_fragment" />

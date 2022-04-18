@@ -2,6 +2,7 @@ package com.example.storyapplication.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
+import com.example.storyapplication.BuildConfig
 import com.example.storyapplication.data.datastore.UserPreference
 import com.example.storyapplication.data.network.ApiInterceptor
 import com.example.storyapplication.data.network.ApiService
@@ -67,7 +68,7 @@ class Repository(
             .addInterceptor(ApiInterceptor(token))
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://story-api.dicoding.dev/v1/")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
@@ -80,7 +81,7 @@ class Repository(
             .addInterceptor(ApiInterceptor(token))
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://story-api.dicoding.dev/v1/")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
