@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">StoryApplication</string>
+    //Started Fragment
+    <string name="title_menu_1">Apa itu Dicoding StoryApp ?</string>
+    <string name="title_menu_2">Desain Interaksi yang Seru !!</string>
+    <string name="title_menu_3">Bukan hanya sekedar Cerita tapi juga Belajar</string>
+    <string name="title_menu_4">Gimana Penasaran?</string>
+    <string name="desc_menu_1">Aplikasi Seputar Cerita tentang Programer yang telah mengikuti Dicoding.</string>
+    <string name="desc_menu_2">Desain yang merupakan penyederhanaan yang di sempurnakan agar lebih mudah dan menarik untuk mengakses Cerita-Cerita dari anggota Dicoding.</string>
+    <string name="desc_menu_3">Cerita-cerita ini terdapat pengalaman-pengalaman hebat dari para Ahli Code dari Dicoding.</string>
+    <string name="desc_menu_4">Langsung aja Yuk ....</string>
+    <string name="learn_now">Ayo....</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    //Autentication
+    <string name="signup">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="message_welcome_page">Chek Akun kamu atau Buat Akun baru untuk bisa mengakses aplikasi Dicoding StoryApp Sekarang!</string>
+    <string name="title_welcome_page">Selamat datang di Dicoding StoryApp!</string>
+    <string name="title_signup_page">Lengkapi data dirimu di bawah ini ya</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="message_login_page">Masukkan dulu datamu ya!!</string>
+    <string name="title_login_page">Sudah siap ?</string>
+    <string name="name">Nama</string>
+    <string name="copyright">© 2021 Dicoding</string>
+    <string name="message_main_page">Selamat Berselancar.</string>
+    <string name="greeting">Halo %1$s,</string>
+    <string name="logout">Keluar</string>
+    <string name="splash">splash</string>
+    <string name="wrong_credential">Username dan Password Kamu Salah</string>
+    <string name="register_success">Register Sukses silahkan Masuk</string>
+    <string name="register_field">Register Gagal</string>
+    <string name="length_character">password harus lebih dari 6 karakter </string>
+    <string name="swipe">Geser >></string>
+    <string name="error_empty_email">Email tidak Sesuai</string>
+
+    //Navigation
+    <string name="title_home">Beranda</string>
+    <string name="title_setting">Setting</string>
+    <string name="title_profile">Profile</string>
+
+    <string name="title_notifications">Notifikasi</string>
+    <string name="title_new_story">Cerita Baru</string>
+    <string name="setting">Pengaturan</string>
+
+    //Adapter
+    <string name="detail">Detail</string>
+    <string name="close">Tutup</string>
+    <string name="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
+
+
+</resources>
