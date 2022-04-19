@@ -20,13 +20,13 @@
             android:exported="false" />
         <activity
             android:name=".view.dashboard.DashboardActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".view.onboarding.OnBoardingActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".view.authentication.MainActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".view.SplashActivity"
             android:exported="true">
