@@ -1,21 +1,15 @@
 package com.example.storyapplication.view.dashboard.profile
 
-import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.storyapplication.R
 import com.example.storyapplication.ViewModelFactory
 import com.example.storyapplication.databinding.ProfileFragmentBinding
-import com.example.storyapplication.databinding.SettingFragmentBinding
-import com.example.storyapplication.view.authentication.AuthenticationViewModel
-import com.example.storyapplication.view.authentication.MainActivity
 import com.example.storyapplication.view.dashboard.setting.SettingViewModel
 
 class ProfileFragment : Fragment() {

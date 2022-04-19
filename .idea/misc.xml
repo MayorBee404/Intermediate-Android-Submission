@@ -6,6 +6,8 @@
         <entry key="../../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/bg_bottom_nav.xml" value="0.157" />
         <entry key="app/src/main/res/drawable-v24/bottom_nav_item_color_state.xml" value="0.157" />
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_camera_24.xml" value="0.218" />
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_flip_camera_android_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_keyboard_arrow_down_24.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_keyboard_arrow_up_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_settings_24.xml" value="0.181" />
@@ -13,7 +15,9 @@
         <entry key="app/src/main/res/drawable-v24/ic_home_black_24dp.xml" value="0.157" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.193" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1755" />
+        <entry key="app/src/main/res/drawable/ic_baseline_image_search_24.xml" value="0.218" />
         <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.218" />
         <entry key="app/src/main/res/drawable/ic_ellipse_1.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.193" />
         <entry key="app/src/main/res/drawable/ic_story_app.xml" value="0.1755" />
@@ -22,12 +26,14 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.2116851806640625" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/camera_activity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_started.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.1" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_row_story.xml" value="0.1" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/new_story_fragment.xml" value="0.1839323467230444" />
         <entry key="app/src/main/res/layout/on_boarding_fragment.xml" value="0.2828125" />
         <entry key="app/src/main/res/layout/profile_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/register_fragment.xml" value="0.25433502197265623" />

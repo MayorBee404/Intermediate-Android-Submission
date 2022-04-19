@@ -1,18 +1,18 @@
 package com.example.storyapplication.view.dashboard.setting
 
 import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.storyapplication.R
 import com.example.storyapplication.ViewModelFactory
 import com.example.storyapplication.databinding.SettingFragmentBinding
 import com.example.storyapplication.view.authentication.AuthenticationViewModel
 import com.example.storyapplication.view.authentication.MainActivity
+import java.util.*
 
 class SettingFragment : Fragment() {
 
@@ -55,6 +55,19 @@ class SettingFragment : Fragment() {
             startActivity(Intent(activity, MainActivity::class.java))
             activity?.finish()
         }
+        binding.setLanguage.setOnClickListener {
+                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+            }
+        binding.localName.setOnClickListener{
+            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+        }
 
-    }
+        binding.localName.text = Locale.getDefault().displayName
+        binding.btnLogout.setOnClickListener {
+                startActivity(Intent(activity, MainActivity::class.java))
+                activity?.finish()
+            }
+
+        }
+
 }

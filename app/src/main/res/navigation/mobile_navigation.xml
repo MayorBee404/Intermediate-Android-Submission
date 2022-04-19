@@ -28,4 +28,13 @@
         android:name="com.example.storyapplication.view.dashboard.setting.SettingFragment"
         android:label="setting_fragment"
         tools:layout="@layout/setting_fragment" />
+    <fragment
+        android:id="@+id/navigation_new_story"
+        android:name="com.example.storyapplication.view.dashboard.newstory.NewStoryFragment"
+        android:label="new_story_fragment"
+        tools:layout="@layout/new_story_fragment" >
+        <action
+            android:id="@+id/action_navigation_new_story_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
 </navigation>
