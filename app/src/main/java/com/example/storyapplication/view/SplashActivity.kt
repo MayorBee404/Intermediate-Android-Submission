@@ -27,11 +27,11 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         factory = ViewModelFactory.getInstance(this)
+        val delayMillis: Long = 2000
         setupView()
 
         authenticationViewModel.getIsFirstTime().observe(this) { isFirstTime
             ->
-            val delayMillis: Long = 2000
             if (isFirstTime) {
                 Handler(Looper.getMainLooper()).postDelayed({
                     val intent = Intent(this@SplashActivity, OnBoardingActivity::class.java)

@@ -8,4 +8,5 @@ class SettingViewModel(private val userRepository : Repository) : ViewModel() {
     fun getUserName() : LiveData<String> = userRepository.getUserName()
     fun getUserEmail() : LiveData<String> = userRepository.getUserEmail()
 
+
 }

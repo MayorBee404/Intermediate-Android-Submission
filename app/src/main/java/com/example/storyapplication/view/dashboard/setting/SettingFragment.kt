@@ -35,6 +35,11 @@ class SettingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         factory = ViewModelFactory.getInstance(requireActivity())
 
+        binding.btnLogout.setOnClickListener {
+            startActivity(Intent(activity, MainActivity::class.java))
+            activity?.finish()
+        }
+
         initObserve()
         initView()
     }
@@ -63,11 +68,10 @@ class SettingFragment : Fragment() {
         }
 
         binding.localName.text = Locale.getDefault().displayName
-        binding.btnLogout.setOnClickListener {
-                startActivity(Intent(activity, MainActivity::class.java))
-                activity?.finish()
-            }
 
         }
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _settingbinding = null
+    }
 }

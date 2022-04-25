@@ -11,20 +11,11 @@ import kotlinx.coroutines.flow.map
 
 class UserPreference private constructor(private val dataStore: DataStore<Preferences>) {
 
-    private val THEME_MODE_KEY = booleanPreferencesKey("theme_mode")
     private val FIRST_TIME_KEY = booleanPreferencesKey("first_time")
     private val USER_TOKEN_KEY = stringPreferencesKey("user_token")
     private val USER_EMAIL_KEY = stringPreferencesKey("user_email")
     private val USER_NAME_KEY = stringPreferencesKey("user_name")
 
-    fun getThemeMode(): Flow<Boolean> = dataStore.data.map {
-        it[THEME_MODE_KEY] ?: false
-    }
-    suspend fun saveThemeMode(themeMode: Boolean) {
-        dataStore.edit {
-            it[THEME_MODE_KEY] = themeMode
-        }
-    }
 
 
     fun getUserToken(): Flow<String> = dataStore.data.map {
@@ -34,10 +25,9 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
     suspend fun saveUserToken(token: String) {
         dataStore.edit {
             it[USER_TOKEN_KEY] = token
-            Log.e("SettingPreference", "Token saved! saveUserToken: $token")
+            Log.e("User Preference", "Token saved! saveUserToken: $token")
         }
     }
-
 
     fun getUserEmail(): Flow<String> = dataStore.data.map {
         it[USER_EMAIL_KEY] ?: DEFAULT_VALUE

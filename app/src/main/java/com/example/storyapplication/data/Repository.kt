@@ -22,8 +22,6 @@ class Repository(
     val appExecutors: AppExecutors
 ) {
 
-    fun getThemeMode() : LiveData<Boolean> = pref.getThemeMode().asLiveData()
-    suspend fun saveThemeMode(value: Boolean) = pref.saveThemeMode(value)
 
     fun getUserToken() : LiveData<String> = pref.getUserToken().asLiveData()
     suspend fun saveUserToken(value: String) = pref.saveUserToken(value)
@@ -39,9 +37,6 @@ class Repository(
 
     suspend fun clearCache() = pref.clearCache()
 
-    /**
-     * Access data from API (Retrofit)
-     */
 
     fun userLogin(email: String, password: String) : Call<UserResponse>  {
         val user: Map<String, String> = mapOf(
