@@ -1,5 +1,4 @@
 package com.example.storyapplication
-
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -15,6 +14,7 @@ import com.example.storyapplication.view.dashboard.setting.SettingViewModel
 import java.lang.IllegalArgumentException
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+
 
 class ViewModelFactory private constructor(private val userRepository: Repository) : ViewModelProvider.NewInstanceFactory(){
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

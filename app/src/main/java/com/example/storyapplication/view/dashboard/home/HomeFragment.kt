@@ -2,15 +2,15 @@ package com.example.storyapplication.view.dashboard.home
 
 import android.os.Bundle
 import android.util.Log
-import android.view.*
-import android.widget.Toast
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.storyapplication.R
 import com.example.storyapplication.ViewModelFactory
-import com.example.storyapplication.databinding.ActivityDashboardBinding.inflate
 import com.example.storyapplication.databinding.HomeFragmentBinding
 
 class HomeFragment : Fragment() {

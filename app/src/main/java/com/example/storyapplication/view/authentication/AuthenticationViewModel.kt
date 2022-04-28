@@ -125,7 +125,6 @@ class AuthenticationViewModel(private val userRepository: Repository) : ViewMode
 
     fun getUserToken() = userRepository.getUserToken()
     fun getUserName(): LiveData<String> = userRepository.getUserName()
-    fun getUserEmail(): LiveData<String> = userRepository.getUserEmail()
     fun getIsFirstTime(): LiveData<Boolean> = userRepository.getIsFirstTime()
     fun saveIsFirstTime(value: Boolean) {
         viewModelScope.launch {

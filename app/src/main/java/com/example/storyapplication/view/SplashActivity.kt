@@ -1,22 +1,23 @@
 package com.example.storyapplication.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.storyapplication.R
 import com.example.storyapplication.ViewModelFactory
 import com.example.storyapplication.view.authentication.AuthenticationViewModel
 import com.example.storyapplication.view.authentication.MainActivity
 import com.example.storyapplication.view.dashboard.DashboardActivity
 import com.example.storyapplication.view.onboarding.OnBoardingActivity
-import kotlinx.coroutines.delay
 
+@SuppressLint("CustomSplashScreen")
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
 

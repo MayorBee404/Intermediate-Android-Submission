@@ -1,15 +1,11 @@
 package com.example.storyapplication.view.authentication
 
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import androidx.fragment.app.commit
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
+import androidx.appcompat.app.AppCompatActivity
 import com.example.storyapplication.R
-import com.example.storyapplication.view.authentication.WelcomeFragment
 
 class MainActivity : AppCompatActivity() {
 
