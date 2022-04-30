@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.DiffUtil
 
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +26,9 @@ class ListStoryAdapter : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>()
         var description = binding.storyDescription
         var detail = binding.tvDetail
         var isExpanded = false
+        var card = binding.cardViewAdapter
+        val rooti = binding.root
+
 
         val getResources: Resources = binding.root.context.resources
     }
@@ -37,7 +42,7 @@ class ListStoryAdapter : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>()
         val user = _listStory[position]
         holder.apply {
             name.text = user.name
-            Log.e("Adapter","${user.image}")
+            Log.e("Adapter", "${user.image}")
             Glide.with(itemView.context)
                 .load(user.image)
                 .placeholder(R.drawable.placeholder_image)
@@ -45,21 +50,46 @@ class ListStoryAdapter : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>()
                 .into(image)
             description.text = user.description
 
-            holder.detail.setOnClickListener{
+            holder.detail.setOnClickListener {
                 TransitionManager.beginDelayedTransition(itemView as ViewGroup)
-                if (isExpanded){
+                if (isExpanded) {
                     description.visibility = View.GONE
                     detail.text = getResources.getString(R.string.detail)
-                    detail.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_keyboard_arrow_down_24, 0,0,0)
+                    detail.setCompoundDrawablesWithIntrinsicBounds(
+                        R.drawable.ic_baseline_keyboard_arrow_down_24,
+                        0,
+                        0,
+                        0
+                    )
                     isExpanded = false
-                }else {
+                } else {
                     description.visibility = View.VISIBLE
                     detail.text = getResources.getString(R.string.detail)
-                    detail.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_keyboard_arrow_up_24,0,0,0)
+                    detail.setCompoundDrawablesWithIntrinsicBounds(
+                        R.drawable.ic_baseline_keyboard_arrow_up_24,
+                        0,
+                        0,
+                        0
+                    )
                     isExpanded = true
 
                 }
             }
+            holder.card.setOnClickListener {
+                val toDetailFragment = HomeFragmentDirections.actionNavigationHomeToDetailFragment(
+                    user.image,
+                    user.name,
+                    user.description
+                )
+                val extras = FragmentNavigatorExtras(
+                    image to "detail_image",
+                    name to "detail_name",
+                    description to "detail_description"
+                )
+
+                rooti.findNavController().navigate(toDetailFragment, extras)
+            }
+
         }
     }
 
