@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.storyapplication.data.Repository
 import com.example.storyapplication.data.network.ApiConfig
 import com.example.storyapplication.view.authentication.AuthenticationViewModel
+import com.example.storyapplication.view.dashboard.googlemaps.MapsViewModel
 import com.example.storyapplication.view.dashboard.home.HomeViewModel
 import com.example.storyapplication.view.dashboard.newstory.NewStoryViewModel
 import com.example.storyapplication.view.dashboard.setting.SettingViewModel
@@ -23,6 +24,7 @@ class ViewModelFactory private constructor(private val userRepository: Repositor
             modelClass.isAssignableFrom(SettingViewModel::class.java)->SettingViewModel(userRepository) as T
             modelClass.isAssignableFrom(HomeViewModel::class.java)->HomeViewModel(userRepository) as T
             modelClass.isAssignableFrom(NewStoryViewModel::class.java)->NewStoryViewModel(userRepository) as T
+            modelClass.isAssignableFrom(MapsViewModel::class.java)->MapsViewModel(userRepository) as T
             else -> throw IllegalArgumentException("Unknown ViewModel Class : ${modelClass.name}")
 
         }

@@ -34,6 +34,7 @@
     <string name="title_home">Home</string>
     <string name="title_setting">Setting</string>
     <string name="title_profile">Profile</string>
+    <string name="title_maps">Maps</string>
 
     <string name="title_notifications">Notifications</string>
     <string name="title_new_story">New Story</string>
@@ -69,6 +70,14 @@
     <string name="uploading">Uploading…</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
+    <string name="Logo" translatable="false">Logo</string>
+
+    //Maps
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+    <string name="shareloc">Share your Location?</string>
 
 
 </resources>

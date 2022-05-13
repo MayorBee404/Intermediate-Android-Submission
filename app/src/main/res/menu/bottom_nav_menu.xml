@@ -11,8 +11,14 @@
         android:title="@string/title_new_story" />
 
     <item
+        android:id="@+id/navigation_maps"
+        android:icon="@drawable/ic_baseline_map_24"
+        android:title="@string/title_maps"/>
+
+    <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_baseline_account_circle_24"
         android:title="@string/title_profile" />
+
 
 </menu>

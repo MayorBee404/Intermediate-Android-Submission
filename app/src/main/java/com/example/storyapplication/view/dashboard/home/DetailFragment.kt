@@ -43,7 +43,6 @@ class DetailFragment : DialogFragment() {
         Glide.with(requireActivity())
             .load(bundle.image)
             .into(binding.ivDetailImage)
-
         description.text = bundle.detailDescription
         name.text = bundle.detailName
 

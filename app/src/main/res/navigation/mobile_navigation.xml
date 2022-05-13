@@ -61,4 +61,35 @@
             app:nullable="true"
             />
     </dialog>
+    <fragment
+        android:id="@+id/navigation_maps"
+        android:name="com.example.storyapplication.view.dashboard.googlemaps.MapsFragment"
+        android:label="maps_fragment"
+        tools:layout="@layout/maps_fragment" >
+        <action
+            android:id="@+id/action_navigation_maps_to_detailMapsFragment2"
+            app:destination="@id/detailMapsFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/detailMapsFragment"
+        android:name="com.example.storyapplication.view.dashboard.googlemaps.DetailMapsFragment"
+        android:label="fragment_detail_maps"
+        tools:layout="@layout/fragment_detail_maps" >
+        <argument
+            android:name="maps_image"
+            app:argType="string"
+            app:nullable="true"
+            />
+        <argument
+            android:name="maps_name"
+            app:argType="string"
+            app:nullable="true"
+            />
+        <argument
+            android:name="maps_description"
+            app:argType="string"
+            app:nullable="true"
+            />
+    </dialog>
+
 </navigation>

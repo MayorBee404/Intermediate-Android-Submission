@@ -38,7 +38,8 @@
     //Navigation
     <string name="title_home">Beranda</string>
     <string name="title_setting">Setting</string>
-    <string name="title_profile">Profile</string>
+    <string name="title_profile">Profil</string>
+    <string name="title_maps">Peta</string>
 
     <string name="title_notifications">Notifikasi</string>
     <string name="title_new_story">Cerita Baru</string>
@@ -70,7 +71,11 @@
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
 
-
-
+    //Maps
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+    <string name="shareloc">Bagikan Lokasi? </string>
 
 </resources>

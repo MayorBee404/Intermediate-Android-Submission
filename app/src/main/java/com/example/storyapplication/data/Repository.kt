@@ -8,6 +8,7 @@ import com.example.storyapplication.data.network.ApiInterceptor
 import com.example.storyapplication.data.network.ApiService
 import com.example.storyapplication.data.network.UserResponse
 import com.example.storyapplication.utilities.AppExecutors
+import com.example.storyapplication.view.dashboard.googlemaps.MapType
 
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
@@ -35,7 +36,26 @@ class Repository(
     fun getIsFirstTime() : LiveData<Boolean> = pref.isFirstTime().asLiveData()
     suspend fun saveIsFirstTime(value: Boolean) = pref.saveIsFirstTime(value)
 
+    fun getMapType() : LiveData<MapType> = pref.getMapType().asLiveData()
+    suspend fun saveMapType(value: MapType) = pref.saveMapType(value)
+
     suspend fun clearCache() = pref.clearCache()
+
+    private fun userStories(token: String): ApiService {
+        val client = OkHttpClient.Builder()
+            .addInterceptor(ApiInterceptor(token))
+            .build()
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://story-api.dicoding.dev/v1/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+        return retrofit.create(ApiService::class.java)
+    }
+
+    fun getUserStoryMapView(token: String) : Call<UserResponse> {
+        return userStories(token).getUserStories(1)
+    }
 
 
     fun userLogin(email: String, password: String) : Call<UserResponse>  {

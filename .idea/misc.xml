@@ -29,18 +29,22 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/camera_activity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.36165618896484375" />
+        <entry key="app/src/main/res/layout/fragment_detail_maps.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_started.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/home_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/home_fragment.xml" value="0.16710510253906252" />
         <entry key="app/src/main/res/layout/item_row_story.xml" value="0.1" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/new_story_fragment.xml" value="0.1839323467230444" />
+        <entry key="app/src/main/res/layout/maps_fragment.xml" value="0.1859375" />
+        <entry key="app/src/main/res/layout/new_story_fragment.xml" value="0.18010752688172044" />
         <entry key="app/src/main/res/layout/on_boarding_fragment.xml" value="0.2828125" />
         <entry key="app/src/main/res/layout/profile_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/register_fragment.xml" value="0.25433502197265623" />
         <entry key="app/src/main/res/layout/setting_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/map_options.xml" value="0.1859375" />
+        <entry key="app/src/main/res/menu/map_setting.xml" value="0.1859375" />
         <entry key="app/src/main/res/menu/nav_setting.xml" value="0.1" />
       </map>
     </option>

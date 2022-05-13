@@ -84,7 +84,10 @@ class ListStoryAdapter : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>()
                 val extras = FragmentNavigatorExtras(
                     image to "detail_image",
                     name to "detail_name",
-                    description to "detail_description"
+                    description to "detail_description",
+                    image to "maps_image",
+                    name to "maps_image",
+                    description to "maps_description"
                 )
 
                 rooti.findNavController().navigate(toDetailFragment, extras)

@@ -20,13 +20,17 @@ interface ApiService {
 
     @GET("stories")
     fun getUserStories(
-
+        @Query("location") location: Int = 0,
+        @Query("page") page: Int? = null,
+        @Query("size") size: Int? = null
     ) : Call<UserResponse>
 
     @Multipart
     @POST("stories")
     fun postUserStory(
         @Part photo : MultipartBody.Part,
-        @Part("description") description: RequestBody
+        @Part("description") description: RequestBody,
+        @Part("lat") lat: Float? = null,
+        @Part("lon") lon: Float? = null,
     ) : Call<UserResponse>
 }
