@@ -66,8 +66,8 @@ class NewStoryFragment : Fragment() {
                 }
                 else -> {
                     // No location access granted.
-                    binding.sherloc.isChecked = false
-                    binding.sherloc.isEnabled = false
+                    binding.shareloc.isChecked = false
+                    binding.shareloc.isEnabled = false
                 }
             }
         }
