@@ -27,6 +27,7 @@ import com.example.storyapplication.utilities.uriToFile
 import com.example.storyapplication.view.authentication.AuthenticationViewModel
 import com.example.storyapplication.view.dashboard.DashboardActivity
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -86,19 +87,31 @@ class NewStoryFragment : Fragment() {
 
         factory = ViewModelFactory.getInstance(requireActivity())
         navView = requireActivity().findViewById(R.id.nav_view)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
         navView.visibility = View.VISIBLE
-
-        binding.previewImage.setOnClickListener{startCameraX()}
-        binding.btnCamera.setOnClickListener{startCameraX()}
-        binding.btnGallery.setOnClickListener{startGallery()}
+        binding.previewImage.setOnClickListener { startCameraX() }
+        binding.btnCamera.setOnClickListener { startCameraX() }
+        binding.btnGallery.setOnClickListener { startGallery() }
         binding.uploadStory.setOnClickListener {
             val description = binding.descriptionEditText.text.toString()
             if (description.isNotEmpty()) {
+                navView.visibility = View.GONE
                 loading(true)
                 uploadStory(description)
             } else {
                 val msg = getString(R.string.enter_description)
                 Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.shareloc.setOnCheckedChangeListener { _, checked ->
+            if (checked) {
+                requestPermissionLauncher.launch(
+                    arrayOf(
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION
+                    )
+                )
             }
         }
         initObserve()
@@ -145,7 +158,13 @@ class NewStoryFragment : Fragment() {
                 requestImageFile
             )
             authenticationViewModel.getUserToken().observe(viewLifecycleOwner) { token ->
-                viewModel.uploadStory(imageMultipart, requestDescription, token)
+                viewModel.myLocation.observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        viewModel.uploadStory(imageMultipart, requestDescription, token, it.latitude.toFloat(), it.longitude.toFloat())
+                    } else {
+                       viewModel.uploadStory(imageMultipart, requestDescription, token)
+                    }
+                }
             }
         }
     }
@@ -224,6 +243,7 @@ class NewStoryFragment : Fragment() {
 
             binding.uploadStory.isEnabled = true
             binding.previewImage.setImageURI(selectedImg)
+            navView.visibility = View.INVISIBLE
         }
     }
     private fun initAction(){

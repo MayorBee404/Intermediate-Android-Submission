@@ -91,18 +91,13 @@ class Repository(
         return mApiService.getUserStories()
     }
 
-    fun uploadStory(photo: MultipartBody.Part, description: RequestBody, token: String): Call<UserResponse> {
-        val client = OkHttpClient.Builder()
-            .addInterceptor(ApiInterceptor(token))
-            .build()
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
-            .build()
-        val mApiService = retrofit.create(ApiService::class.java)
-        return mApiService.postUserStory(photo, description)
-    }
+    fun uploadStory(
+        photo: MultipartBody.Part,
+        description: RequestBody,
+        token: String,
+        lat: Float? = null,
+        lon: Float? = null): Call<UserResponse> = userStories(token).postUserStory(photo, description, lat, lon)
+
 
    companion object {
         @Volatile

@@ -23,7 +23,7 @@ class NewStoryViewModel(private val userRepository: Repository) : ViewModel() {
     private var _loading = MutableLiveData<Event<Boolean>>()
     val loading: LiveData<Event<Boolean>> = _loading
 
-    private var myLocation = MutableLiveData<Location?>()
+    var myLocation = MutableLiveData<Location?>()
 
     init {
         myLocation.value = null
@@ -32,9 +32,9 @@ class NewStoryViewModel(private val userRepository: Repository) : ViewModel() {
         myLocation.value = location
     }
 
-    fun uploadStory(photo: MultipartBody.Part, description: RequestBody, token: String) {
+    fun uploadStory(photo: MultipartBody.Part, description: RequestBody, token: String, lat: Float? = null, lon: Float? = null) {
         _loading.value = Event(true)
-        val client = userRepository.uploadStory(photo, description, token)
+        val client = userRepository.uploadStory(photo, description, token, lat, lon)
         client.enqueue(object: Callback<UserResponse> {
                 override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                     userRepository.appExecutors.networkIO.execute {
