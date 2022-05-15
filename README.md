@@ -13,6 +13,19 @@
      alt="Submission 2"
      style="float: left; margin-right: 10px;"
      width="200" />
+<img src="https://github.com/MayorBee404/Intermediate-Android-Submission/blob/master/screenshot/ss10.png"
+     alt="Submission 2"
+     style="float: left; margin-right: 10px;"
+     width="200" /> 
+<img src="https://github.com/MayorBee404/Intermediate-Android-Submission/blob/master/screenshot/ss11.png"
+     alt="Submission 2"
+     style="float: left; margin-right: 10px;"
+     width="200" />
+<img src="https://github.com/MayorBee404/Intermediate-Android-Submission/blob/master/screenshot/ss12.png"
+     alt="Submission 2"
+     style="float: left; margin-right: 10px;"
+     width="200" />
+
 
 #### Submission 1 Checklists
 - [x] Proses login berhasil dengan benar (Terpenuhi)</strong>.
