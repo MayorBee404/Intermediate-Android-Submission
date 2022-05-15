@@ -13,6 +13,10 @@
      alt="Submission 2"
      style="float: left; margin-right: 10px;"
      width="200" />
+<img src="https://github.com/MayorBee404/Intermediate-Android-Submission/blob/master/screenshot/ss6.png"
+     alt="Submission 2"
+     style="float: left; margin-right: 10px;"
+     width="200" />
 <img src="https://github.com/MayorBee404/Intermediate-Android-Submission/blob/master/screenshot/ss10.png"
      alt="Submission 2"
      style="float: left; margin-right: 10px;"
