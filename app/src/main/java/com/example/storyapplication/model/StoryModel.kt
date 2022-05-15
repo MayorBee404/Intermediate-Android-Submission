@@ -2,6 +2,7 @@ package com.example.storyapplication.model
 
 import android.os.Parcelable
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
@@ -9,8 +10,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class StoryModel(
 
+    @PrimaryKey
     @field:SerializedName("id")
-    val id: String? = null,
+    val id: String,
 
     @field:SerializedName("name")
     val name: String? = null,
@@ -26,6 +28,5 @@ data class StoryModel(
 
     @field:SerializedName("lon")
     val lon: Double? = null,
-
 
 ) : Parcelable

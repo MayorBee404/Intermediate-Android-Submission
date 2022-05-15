@@ -77,5 +77,6 @@
     <string name="terrain_type">Terrain</string>
     <string name="hybrid_type">Hybrid</string>
     <string name="shareloc">Bagikan Lokasi? </string>
+    <string name="retry">Retry</string>
 
 </resources>

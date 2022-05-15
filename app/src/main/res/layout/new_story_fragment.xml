@@ -23,9 +23,7 @@
             android:layout_height="wrap_content"
             android:text="@string/title_new_story"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="18dp" />
+            android:textSize="20sp" />
 
     </androidx.appcompat.widget.Toolbar>
 

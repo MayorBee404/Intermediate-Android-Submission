@@ -34,6 +34,7 @@
         <entry key="app/src/main/res/layout/fragment_started.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.1" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.16710510253906252" />
+        <entry key="app/src/main/res/layout/item_loading.xml" value="0.1859375" />
         <entry key="app/src/main/res/layout/item_row_story.xml" value="0.1" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/maps_fragment.xml" value="0.1" />

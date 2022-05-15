@@ -1,15 +1,18 @@
 package com.example.storyapplication.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
-import com.example.storyapplication.BuildConfig
+import androidx.paging.*
 import com.example.storyapplication.data.datastore.UserPreference
 import com.example.storyapplication.data.network.ApiInterceptor
 import com.example.storyapplication.data.network.ApiService
 import com.example.storyapplication.data.network.UserResponse
+import com.example.storyapplication.data.paging.StoryRemoteMediator
+import com.example.storyapplication.database.UserStoryDatabase
+import com.example.storyapplication.model.StoryModel
 import com.example.storyapplication.utilities.AppExecutors
 import com.example.storyapplication.view.dashboard.googlemaps.MapType
-
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
@@ -20,6 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class Repository(
     private val pref: UserPreference,
     private val apiService: ApiService,
+    private val userStoryDatabase: UserStoryDatabase,
     val appExecutors: AppExecutors
 ) {
 
@@ -77,18 +81,21 @@ class Repository(
         return apiService.userRegister(user)
     }
 
-    fun getUserStories(token: String): Call<UserResponse> {
+    @OptIn(ExperimentalPagingApi::class)
+    fun getUserStoriesList(token: String) : LiveData <PagingData<StoryModel>>{
+        Log.e("getUserStoryList","run List")
+        return Pager(
+            config = PagingConfig(
+                pageSize = 10,
+                enablePlaceholders = false
+            ),
+            remoteMediator = StoryRemoteMediator(
+                userStoryDatabase, apiService = userStories(token)
 
-        val client = OkHttpClient.Builder()
-            .addInterceptor(ApiInterceptor(token))
-            .build()
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
-            .build()
-        val mApiService = retrofit.create(ApiService::class.java)
-        return mApiService.getUserStories()
+            ),
+            pagingSourceFactory = {userStoryDatabase.userStoryDao().getAllUserStories()}
+        ).liveData
+
     }
 
     fun uploadStory(
@@ -107,10 +114,11 @@ class Repository(
         fun getInstance(
             pref: UserPreference,
             apiService: ApiService,
-            appExecutors: AppExecutors
+            userStoryDatabase: UserStoryDatabase,
+            appExecutors: AppExecutors,
         ) : Repository =
             instance ?: synchronized(this) {
-                instance ?: Repository(pref,apiService,appExecutors)
+                instance ?: Repository(pref,apiService,userStoryDatabase,appExecutors)
             }.also { instance = it }
     }
 

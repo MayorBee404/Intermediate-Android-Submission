@@ -1,5 +1,7 @@
 package com.example.storyapplication.view.dashboard.home
 
+import android.animation.ObjectAnimator
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.storyapplication.R
 import com.example.storyapplication.ViewModelFactory
@@ -19,6 +22,7 @@ class HomeFragment : Fragment() {
     private val viewModel : HomeViewModel by activityViewModels{factory}
     private var _homebinding: HomeFragmentBinding? = null
     private val binding get() = _homebinding!!
+    private var hideNavView = false
     private lateinit var adapter : ListStoryAdapter
 
     override fun onCreateView(
@@ -34,14 +38,41 @@ class HomeFragment : Fragment() {
         setHasOptionsMenu(true)
         super.onViewCreated(view, savedInstanceState)
         factory = ViewModelFactory.getInstance(requireActivity())
+        binding.refreshLayout.isRefreshing = true
         binding.refreshLayout.setOnRefreshListener {
-            fetchUserStories()
+            adapter.refresh()
         }
         fetchUserStories()
-        initRecycler()
         initAction()
+        val navView = requireActivity().findViewById<View>(R.id.nav_view)
+        if (navView != null) {
+            hideShowBottomNavigation(navView)
+        }
 
 
+    }
+    private fun hideShowBottomNavigation(navView: View) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            binding.rvStory.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+                val height = (navView.height + 32).toFloat()
+
+                if (!hideNavView && scrollY > oldScrollY) {
+                    hideNavView = true
+                    ObjectAnimator.ofFloat(navView, "translationY", 0f, height).apply {
+                        duration = 200
+                        start()
+                    }
+                }
+
+                if (hideNavView && scrollY < oldScrollY) {
+                    hideNavView = false
+                    ObjectAnimator.ofFloat(navView, "translationY", height, 0f).apply {
+                        duration = 200
+                        start()
+                    }
+                }
+            }
+        }
     }
 
     private fun fetchUserStories() {
@@ -49,6 +80,7 @@ class HomeFragment : Fragment() {
         viewModel.getUserToken().observe(viewLifecycleOwner) {
             binding.refreshLayout.isRefreshing = true
             viewModel.getUserStories(it)
+            initRecycler()
             Log.e("Home", "Token: $it")
 
         }
@@ -58,9 +90,11 @@ class HomeFragment : Fragment() {
         adapter = ListStoryAdapter()
         viewModel.userStories.observe(viewLifecycleOwner){
             binding.refreshLayout.isRefreshing = false
-            adapter.setData(it)
+            adapter.submitData(lifecycle,it)
         }
-        binding.rvStory.adapter = adapter
+        binding.rvStory.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateListStoryAdapter { adapter.retry() }
+        )
 
     }
     private fun initAction(){
@@ -83,6 +117,7 @@ class HomeFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _homebinding = null
+        adapter.submitData(lifecycle, PagingData.empty())
     }
 
 }

@@ -6,6 +6,7 @@ import com.example.storyapplication.BuildConfig
 import com.example.storyapplication.data.Repository
 import com.example.storyapplication.data.datastore.UserPreference
 import com.example.storyapplication.dataStore
+import com.example.storyapplication.database.UserStoryDatabase
 import com.example.storyapplication.utilities.AppExecutors
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -35,10 +36,12 @@ class ApiConfig {
                     .addInterceptor(loggingInterceptor)
                     .build()
 
+                val userStoryDatabase = UserStoryDatabase.getDatabase(context)
+
                 Log.e("ApiConfig", "Client: $client")
                 val apiService = getApiService(client)
 
-                return Repository.getInstance(pref, apiService, appExecutors)
+                return Repository.getInstance(pref, apiService,userStoryDatabase, appExecutors)
             }
         }
 }

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +18,7 @@ import com.example.storyapplication.databinding.ItemRowStoryBinding
 import com.example.storyapplication.model.StoryModel
 import com.example.storyapplication.utilities.DiffUtilCallback
 
-class ListStoryAdapter : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>(){
+class ListStoryAdapter : PagingDataAdapter<StoryModel, ListStoryAdapter.ListViewHolder>(DiffUtilCallback()){
     private var _listStory = ArrayList<StoryModel>()
 
     inner class ListViewHolder(binding : ItemRowStoryBinding) : RecyclerView.ViewHolder(binding.root){
@@ -39,16 +40,16 @@ class ListStoryAdapter : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>()
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val user = _listStory[position]
+        val user = getItem(position)
         holder.apply {
-            name.text = user.name
-            Log.e("Adapter", "${user.image}")
+            name.text = user?.name
+            Log.e("Adapter", "${user?.image}")
             Glide.with(itemView.context)
-                .load(user.image)
+                .load(user?.image)
                 .placeholder(R.drawable.placeholder_image)
                 .error(R.drawable.placeholder_image)
                 .into(image)
-            description.text = user.description
+            description.text = user?.description
 
             holder.detail.setOnClickListener {
                 TransitionManager.beginDelayedTransition(itemView as ViewGroup)
@@ -77,9 +78,9 @@ class ListStoryAdapter : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>()
             }
             holder.card.setOnClickListener {
                 val toDetailFragment = HomeFragmentDirections.actionNavigationHomeToDetailFragment(
-                    user.image,
-                    user.name,
-                    user.description
+                    user?.image,
+                    user?.name,
+                    user?.description
                 )
                 val extras = FragmentNavigatorExtras(
                     image to "detail_image",
@@ -94,16 +95,6 @@ class ListStoryAdapter : RecyclerView.Adapter<ListStoryAdapter.ListViewHolder>()
             }
 
         }
-    }
-
-    override fun getItemCount(): Int = _listStory.size
-
-    fun setData(newData: ArrayList<StoryModel>) {
-        val diffUtilCallback = DiffUtilCallback(_listStory, newData)
-        val diffResult = DiffUtil.calculateDiff(diffUtilCallback)
-
-        _listStory = newData
-        diffResult.dispatchUpdatesTo(this)
     }
 
 }
